@@ -1,4 +1,4 @@
-window.model = {
+	window.model = {
 	inp: 0,
     nestedInp: 0,
     fact: 1,
@@ -169,23 +169,55 @@ window.view = {
 		var inputValue = document.getElementById('simpleLoopInput').value
 		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
 		{
+                 if(model.inp >= 0 && model.inp <=20)
+                 {
 			this.displayLoop('forLoopContent', 'codeContentFor1')
-		}
-		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
-		{
-			this.displayLoop('whileLoopContent', 'codeContentWhile1')
-		}
-		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
-		{
-		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
-		}
-		this.disableButton('btnStart')
+                        this.disableButton('btnStart')
 		this.changeClass( 'btnStart', 'buttonDisable startButton')
 		this.enableButton('btnNext')
 		this.changeClass( 'btnNext', 'button nextButton')
 		this.disableButton('loopList')
 		this.changeClass( 'loopList', 'buttonDisable loopList')
 		this.disableButton('simpleLoopInput')
+		}
+                else{
+                      alert('Input range between 0 to 20');
+                 }
+                 }
+		if (selected_loop === 'while' && inputValue !== '' && !isNaN(model.inp))
+		{
+                 if(model.inp >= 0 && model.inp <=20)
+                { 
+			this.displayLoop('whileLoopContent', 'codeContentWhile1')
+                        this.disableButton('btnStart')
+		this.changeClass( 'btnStart', 'buttonDisable startButton')
+		this.enableButton('btnNext')
+		this.changeClass( 'btnNext', 'button nextButton')
+		this.disableButton('loopList')
+		this.changeClass( 'loopList', 'buttonDisable loopList')
+		this.disableButton('simpleLoopInput')
+		}
+                else{
+                       alert('Input range between 0 to 20');
+                 }
+                 }
+		if (selected_loop === 'do-while' && inputValue !== '' && !isNaN(model.inp))
+		{
+                  if(model.inp >= 0 && model.inp <=20)
+                 {
+		 	this.displayLoop('dowhileLoopContent', 'codeContentDoWhile1')
+                        this.disableButton('btnStart')
+		this.changeClass( 'btnStart', 'buttonDisable startButton')
+		this.enableButton('btnNext')
+		this.changeClass( 'btnNext', 'button nextButton')
+		this.disableButton('loopList')
+		this.changeClass( 'loopList', 'buttonDisable loopList')
+		this.disableButton('simpleLoopInput')
+		}
+                 else{
+                         alert('Input range between 0 to 20');
+                }
+                }
 	},
 	updateModelAndShowResult: function() {
 		if( model.inp >= 1)
